@@ -1,30 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Sidebar from './Sidebar';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
 function UserDetail() {
-    const { id } = useParams()
-    const url = `http://localhost:3000/api/users/${id}`
-    const [user, setUser] = useState()
-    const fetchApi = async () => {
-        const response = await fetch(url);
-        const responseJson = await response.json()
-        setUser(responseJson)
-    }
+  const { id } = useParams();
+  const url = `http://localhost:3001/api/users/${id}`;
+  const [user, setUser] = useState();
+  const fetchApi = async () => {
+    const response = await fetch(url);
+    const responseJson = await response.json();
+    setUser(responseJson);
+  };
 
-    useEffect(() => {
-        console.log("Se monto el componente")
-        fetchApi();
-    }, []
-    );
-    console.log(user)
-    console.log(setUser)
+  useEffect(() => {
+    console.log("Se monto el componente");
+    fetchApi();
+  }, []);
+  console.log(user);
+  console.log(setUser);
 
-    // useEffect( () => {
-    //     console.log("Se actualizo el componente")
-    //     fetchApi();
-    //     }, [product]
-    // )
+  // useEffect( () => {
+  //     console.log("Se actualizo el componente")
+  //     fetchApi();
+  //     }, [product]
+  // )
 
     return (
         <>

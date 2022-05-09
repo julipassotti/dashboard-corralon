@@ -1,36 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Sidebar from './Sidebar';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
 function ProductDetail() {
-    const { id } = useParams()
-    const url = `http://localhost:3000/api/products/${id}`
-    const [product, setProduct] = useState()
-    const [image, setImage] = useState()
-    const fetchApi = async () => {
-        const response = await fetch(url);
-        const responseJson = await response.json()
-        const responseImg = await fetch(`http://localhost:3000${responseJson.data.imgUrl}`)
-        setProduct(responseJson.data)
-        setImage(responseImg)
-    }
-
-    useEffect(() => {
-        console.log("Se monto el componente")
-        fetchApi();
-    }, []
+  const { id } = useParams();
+  const url = `http://localhost:3001/api/products/${id}`;
+  const [product, setProduct] = useState();
+  const [image, setImage] = useState();
+  const fetchApi = async () => {
+    const response = await fetch(url);
+    const responseJson = await response.json();
+    const responseImg = await fetch(
+      `http://localhost:3001${responseJson.data.imgUrl}`
     );
-    console.log(product)
-    console.log(setProduct)
-    console.log(image)
-    console.log(setImage)
+    setProduct(responseJson.data);
+    setImage(responseImg);
+  };
 
+  useEffect(() => {
+    console.log("Se monto el componente");
+    fetchApi();
+  }, []);
+  console.log(product);
+  console.log(setProduct);
+  console.log(image);
+  console.log(setImage);
 
-    // useEffect( () => {
-    //     console.log("Se actualizo el componente")
-    //     fetchApi();
-    //     }, [product]
-    // )
+  // useEffect( () => {
+  //     console.log("Se actualizo el componente")
+  //     fetchApi();
+  //     }, [product]
+  // )
 
     return (
         <>
