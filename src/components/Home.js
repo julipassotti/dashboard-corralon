@@ -2,63 +2,63 @@ import React, { useState, useEffect } from "react";
 import './Home.css';
 
 function Home() {
-    const urlProducts = 'http://localhost:3000/api/products'
+    const urlProducts = 'http://localhost:3001/api/products'
     const [countProducts, setCountProducts] = useState(0)
     const [categories, setCategories] = useState([])
     const [lastProduct, setLastProduct] = useState([])
     const fetchApiProducts = async () => {
-      const response = await fetch(urlProducts);
-      const responseJson = await response.json()
-      setCountProducts(responseJson.count)
-      setCategories(responseJson.countByCategory)
-      setLastProduct(responseJson.products.pop())
+        const response = await fetch(urlProducts);
+        const responseJson = await response.json()
+        setCountProducts(responseJson.count)
+        setCategories(responseJson.countByCategory)
+        setLastProduct(responseJson.products.pop())
     }
 
-    const urlUsers = 'http://localhost:3000/api/users'
+    const urlUsers = 'http://localhost:3001/api/users'
     const [countUsers, setCountUsers] = useState(0)
     const [lastUser, setLastUser] = useState([])
     const fetchApiUsers = async () => {
-      const response = await fetch(urlUsers);
-      const responseJson = await response.json()
-      setCountUsers(responseJson.count)
-      setLastUser(responseJson.users.pop())
+        const response = await fetch(urlUsers);
+        const responseJson = await response.json()
+        setCountUsers(responseJson.count)
+        setLastUser(responseJson.users.pop())
     }
-  
-    useEffect( () => {
+
+    useEffect(() => {
         console.log("Se monto el componente")
         fetchApiProducts();
         fetchApiUsers();
-        }, []
+    }, []
     )
-    
-    return(
+
+    return (
         <>
             <h1 className="titulo-home">CORRALON SANCHEZ</h1>
             <section className="seccion-totales">
-                    <article className="total-productos">    
-                        <h4>PRODUCTOS</h4>
-                        <h4>{countProducts} </h4>
-                    </article>
-                    <article className="total-usuarios">    
-                        <h4>USUARIOS</h4>
-                        <h4>{countUsers} </h4>
-                    </article>
-                    <article className="total-categorias">    
-                        <h4>CATEGORIAS</h4>
-                        <h4>{categories.length} </h4>
-                    </article>
+                <article className="total-productos">
+                    <h4>PRODUCTOS</h4>
+                    <h4>{countProducts} </h4>
+                </article>
+                <article className="total-usuarios">
+                    <h4>USUARIOS</h4>
+                    <h4>{countUsers} </h4>
+                </article>
+                <article className="total-categorias">
+                    <h4>CATEGORIAS</h4>
+                    <h4>{categories.length} </h4>
+                </article>
 
-                    <article className="total-por-categoria">
-                        <h4>TOTALES POR CATEGORIA</h4>     
-                        { categories.length === 0 && <p>No hay categorias</p> }
-                        {
-                            categories.map((category, i) => {
-                                return (
-                                    <p key={i}><b> {category.name}: {category.count} </b></p>
-                                )
-                            })
-                        }
-                    </article>
+                <article className="total-por-categoria">
+                    <h4>TOTALES POR CATEGORIA</h4>
+                    {categories.length === 0 && <p>No hay categorias</p>}
+                    {
+                        categories.map((category, i) => {
+                            return (
+                                <p key={i}><b> {category.name}: {category.count} </b></p>
+                            )
+                        })
+                    }
+                </article>
             </section>
             <section className="ultimas-incorporaciones">
                 <section className="ultimo-producto">
