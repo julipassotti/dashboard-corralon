@@ -24,24 +24,27 @@ function Users() {
             <body>
                 <div className="contenedor">
                     <Sidebar />
-                    <h1>Usuarios</h1>
-                    <ul>
-                        {allUsers.length === 0 && <p>No hay usuarios</p>}
-                        {
-                            allUsers.map((user, i) => {
-                                return (
-                                    <li key={i}>
-                                        <h3>{user.fullName}</h3>
-                                        <Link to={`/users/${user.id}`}>Ver Detalle</Link>
-                                        {/* <p><b>Descripcion: </b>{product.description}</p>
+                    <div className="contUsers">
+
+                        <h1>Usuarios</h1>
+                        <ul>
+                            {allUsers.length === 0 && <p>No hay usuarios</p>}
+                            {
+                                allUsers.map((user, i) => {
+                                    return (
+                                        <li key={i}>
+                                            <h3>{user.fullName}</h3>
+                                            <Link to={`/users/${user.id}`}>Ver Detalle</Link>
+                                            {/* <p><b>Descripcion: </b>{product.description}</p>
                                 <p><b>Precio: </b>{product.price}</p>
                                 <p><b>Stock: </b>{product.stock}</p>
                                 <p><b>Categoria: </b>{product.category.name}</p> */}
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div>
                 </div>
             </body>
         </>

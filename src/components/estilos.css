@@ -213,3 +213,25 @@ a {
 .total-por-categoria p {
     color: var(--azul)
 }
+
+.contUsers {
+    color: var(--gris);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto;
+    background-color: var(--gris)
+}
+
+.contUsers h1 {
+    text-align: center;
+    color: var(--blanco);
+}
+
+.contUsers li {
+    text-align: center;
+    color: var(--primario);
+    list-style:none;
+}
+
+
