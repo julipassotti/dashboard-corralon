@@ -7,6 +7,7 @@ import Products from './components/Products';
 import ProductDetail from './components/ProductDetail';
 import UserDetail from './components/UserDetail';
 import Home from './components/Home';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

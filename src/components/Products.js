@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import {
+    Card,
+    CardGroup,
+    CardImg,
+    CardBody,
+    CardTitle,
+    CardSubtitle,
+    CardText,
+    Button,
+} from "reactstrap"
 
 function Products() {
     const url = 'http://localhost:3001/api/products'
@@ -27,29 +37,57 @@ function Products() {
 
     return (
         <>
-            <div>
-                <div className="contenedor">
-                    <Sidebar />
-                    <h2>Productos</h2>
-                    <ul>
-                        {allProducts.length === 0 && <p>No hay productos</p>}
-                        {
-                            allProducts.map((product, i) => {
-                                return (
-                                    <li key={i}>
-                                        <h3>{product.name}</h3>
-                                        <Link to={`/products/${product.id}`}>Ver Detalle</Link>
-                                        {/* <p><b>Descripcion: </b>{product.description}</p>
-                                <p><b>Precio: </b>{product.price}</p>
-                                <p><b>Stock: </b>{product.stock}</p>
-                                <p><b>Categoria: </b>{product.category.name}</p> */}
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
-            </div >
+
+
+            <div className="contenedor">
+                <Sidebar />
+                <CardGroup >
+                    <div className="productContent">
+
+                        {!allProducts ? 'cargando' : allProducts.map((todo, index) => {
+                            return (
+                                <React.Fragment key={todo.id}>
+                                    <Card>
+                                        <CardImg
+                                            alt="Card image cap"
+                                            src="https://picsum.photos/318/180"
+                                            top
+                                            width="100%"
+                                        />
+                                        <CardBody>
+                                            <CardTitle tag="h5">
+                                                <div key={index}>{todo.name}</div>
+                                            </CardTitle>
+                                            <CardSubtitle
+                                                className="mb-2 text-muted"
+                                                tag="h6"
+                                            >
+                                                <div key={index}>{todo.price}</div>
+                                            </CardSubtitle>
+                                            <CardText>
+                                                <div key={index}>{todo.description}</div>
+                                            </CardText>
+                                            <Link to={`/products/${todo.id}`}>
+                                                <Button >
+                                                    Description
+                                                </Button>
+                                            </Link>
+
+
+
+                                        </CardBody>
+                                    </Card>
+                                </React.Fragment>
+                            )
+                        })}
+
+
+
+
+                    </div>
+                </CardGroup>
+            </div>
+
         </>
     )
 }

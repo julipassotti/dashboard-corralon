@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Sidebar from "./Sidebar";
+import { Table } from "reactstrap"
 
 function Users() {
     const url = 'http://localhost:3001/api/users'
@@ -25,25 +26,52 @@ function Users() {
                 <div className="contenedor">
                     <Sidebar />
                     <div className="contUsers">
+                        <Table striped>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        #user
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        DNI
+                                    </th>
+                                    <th>
+                                        Perfil
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                        <h1>Usuarios</h1>
-                        <ul>
-                            {allUsers.length === 0 && <p>No hay usuarios</p>}
-                            {
-                                allUsers.map((user, i) => {
+                                {!allUsers ? 'cargando' : allUsers.map((user, index) => {
                                     return (
-                                        <li key={i}>
-                                            <h3>{user.fullName}</h3>
-                                            <Link to={`/users/${user.id}`}>Ver Detalle</Link>
-                                            {/* <p><b>Descripcion: </b>{product.description}</p>
-                                <p><b>Precio: </b>{product.price}</p>
-                                <p><b>Stock: </b>{product.stock}</p>
-                                <p><b>Categoria: </b>{product.category.name}</p> */}
-                                        </li>
+                                        <React.Fragment key={user.id}>
+                                            <tr>
+                                                <th scope="row" key={index.id}>
+                                                    {user.id}
+                                                </th>
+                                                <td key={index.id}>
+                                                    {user.fullName}
+                                                </td>
+                                                <td key={index.id}>
+                                                    {user.email}
+                                                </td>
+                                                <td key={index.id}>
+                                                    {user.dni}
+                                                </td>
+                                                <td >
+                                                    <Link to={`/users/${user.id}`}>Ver Detalle</Link>
+                                                </td>
+                                            </tr>
+                                        </React.Fragment>
                                     )
-                                })
-                            }
-                        </ul>
+                                })}
+
+                            </tbody>
+                        </Table>
+
                     </div>
                 </div>
             </div>

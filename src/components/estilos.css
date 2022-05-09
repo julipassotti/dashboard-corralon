@@ -220,7 +220,7 @@ a {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 50px auto;
-    background-color: var(--gris)
+    background-color: var(--blanco)
 }
 
 .contUsers h1 {
@@ -234,4 +234,21 @@ a {
     list-style:none;
 }
 
+.contUsers a:visited {
+    color: var(--primario)
+}
 
+.contUsers a {
+    color: var(--primario)
+}
+
+.contUsers th {
+    color: var(--azul)
+}
+
+.productContent {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
