@@ -104,9 +104,10 @@ body {
     background-color: var(--gris)
 }
 
-.manu .enlace i {
+.menu .enlace i {
     margin-right: 20px;
     font-size: 25px;
+    
 }
 
 .menu .enlace span {
@@ -139,3 +140,24 @@ body {
     opacity: 1;
 }
 
+.contenedor {
+    display: flex;
+}
+
+.analiticContent {
+    width: 100%;
+    display: grid;
+    text-align: center;
+    background-color: red;
+    align-items: center;
+    justify-content: center;
+}
+
+.active {
+    font-weight: bold;
+    color: var(--secundario)
+}
+
+a:visited {
+    color: var(--secundario)
+}

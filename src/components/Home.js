@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import './Home.css';
+import Sidebar from './Sidebar';
+
 
 function Home() {
     const urlProducts = 'http://localhost:3001/api/products'
@@ -33,49 +34,56 @@ function Home() {
 
     return (
         <>
-            <h1 className="titulo-home">CORRALON SANCHEZ</h1>
-            <section className="seccion-totales">
-                <article className="total-productos">
-                    <h4>PRODUCTOS</h4>
-                    <h4>{countProducts} </h4>
-                </article>
-                <article className="total-usuarios">
-                    <h4>USUARIOS</h4>
-                    <h4>{countUsers} </h4>
-                </article>
-                <article className="total-categorias">
-                    <h4>CATEGORIAS</h4>
-                    <h4>{categories.length} </h4>
-                </article>
+            <body>
+                <div className="contenedor">
+                    <Sidebar />
+                    <div className="analiticContent">
+                        <h1 className="titulo-home">CORRALON SANCHEZ</h1>
+                        <section className="seccion-totales">
+                            <article className="total-productos">
+                                <h4>PRODUCTOS</h4>
+                                <h4>{countProducts} </h4>
+                            </article>
+                            <article className="total-usuarios">
+                                <h4>USUARIOS</h4>
+                                <h4>{countUsers} </h4>
+                            </article>
+                            <article className="total-categorias">
+                                <h4>CATEGORIAS</h4>
+                                <h4>{categories.length} </h4>
+                            </article>
 
-                <article className="total-por-categoria">
-                    <h4>TOTALES POR CATEGORIA</h4>
-                    {categories.length === 0 && <p>No hay categorias</p>}
-                    {
-                        categories.map((category, i) => {
-                            return (
-                                <p key={i}><b> {category.name}: {category.count} </b></p>
-                            )
-                        })
-                    }
-                </article>
-            </section>
-            <section className="ultimas-incorporaciones">
-                <section className="ultimo-producto">
-                    <h4>ULTIMO PRODUCTO INCORPORADO</h4>
-                    <h3>{lastProduct.name} </h3>
-                    <p>{lastProduct.description} </p>
-                    <p>{lastProduct.price} </p>
-                    <p>{lastProduct.stock} </p>
-                </section>
-                <section className="ultimo-usuario">
-                    <h4>ULTIMO USUARIO INCORPORADO</h4>
-                    <h3>{lastUser.fullName} </h3>
-                    <p>{lastUser.email} </p>
-                    <p>{lastUser.address} </p>
-                    <p>{lastUser.cel} </p>
-                </section>
-            </section>
+                            <article className="total-por-categoria">
+                                <h4>TOTALES POR CATEGORIA</h4>
+                                {categories.length === 0 && <p>No hay categorias</p>}
+                                {
+                                    categories.map((category, i) => {
+                                        return (
+                                            <p key={i}><b> {category.name}: {category.count} </b></p>
+                                        )
+                                    })
+                                }
+                            </article>
+                        </section>
+                        <section className="ultimas-incorporaciones">
+                            <section className="ultimo-producto">
+                                <h4>ULTIMO PRODUCTO INCORPORADO</h4>
+                                <h3>{lastProduct.name} </h3>
+                                <p>{lastProduct.description} </p>
+                                <p>{lastProduct.price} </p>
+                                <p>{lastProduct.stock} </p>
+                            </section>
+                            <section className="ultimo-usuario">
+                                <h4>ULTIMO USUARIO INCORPORADO</h4>
+                                <h3>{lastUser.fullName} </h3>
+                                <p>{lastUser.email} </p>
+                                <p>{lastUser.address} </p>
+                                <p>{lastUser.cel} </p>
+                            </section>
+                        </section>
+                    </div>
+                </div>
+            </body >
         </>
     )
 }

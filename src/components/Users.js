@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import Sidebar from "./Sidebar";
 
 function Users() {
     const url = 'http://localhost:3001/api/users'
@@ -20,24 +21,29 @@ function Users() {
     console.log(setAllUsers)
     return (
         <>
-            <h1>Usuarios</h1>
-            <ul>
-                {allUsers.length === 0 && <p>No hay usuarios</p>}
-                {
-                    allUsers.map((user, i) => {
-                        return (
-                            <li key={i}>
-                                <h3>{user.fullName}</h3>
-                                <Link to={`/users/${user.id}`}>Ver Detalle</Link>
-                                {/* <p><b>Descripcion: </b>{product.description}</p>
+            <body>
+                <div className="contenedor">
+                    <Sidebar />
+                    <h1>Usuarios</h1>
+                    <ul>
+                        {allUsers.length === 0 && <p>No hay usuarios</p>}
+                        {
+                            allUsers.map((user, i) => {
+                                return (
+                                    <li key={i}>
+                                        <h3>{user.fullName}</h3>
+                                        <Link to={`/users/${user.id}`}>Ver Detalle</Link>
+                                        {/* <p><b>Descripcion: </b>{product.description}</p>
                                 <p><b>Precio: </b>{product.price}</p>
                                 <p><b>Stock: </b>{product.stock}</p>
                                 <p><b>Categoria: </b>{product.category.name}</p> */}
-                            </li>
-                        )
-                    })
-                }
-            </ul>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+            </body>
         </>
     )
 }

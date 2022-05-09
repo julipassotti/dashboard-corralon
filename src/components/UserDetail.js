@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Sidebar from './Sidebar';
 
 function UserDetail() {
     const { id } = useParams()
@@ -27,19 +28,24 @@ function UserDetail() {
 
     return (
         <>
-            <h1>Datos del Usuario</h1>
-            {
-                user &&
-                <>
-                    <p><b>Nombre: </b>{user.fullName} </p>
-                    <p><b>Email: </b>{user.email} </p>
-                    <p><b>Direccion: </b>{user.address} </p>
-                    <p><b>Celular: </b>{user.cel} </p>
-                </>
-            }
-            {
-                !user && <p>No se encontraron datos del usuario que estaba buscando</p>
-            }
+            <body>
+                <div className="contenedor">
+                    <Sidebar />
+                    <h1>Datos del Usuario</h1>
+                    {
+                        user &&
+                        <>
+                            <p><b>Nombre: </b>{user.fullName} </p>
+                            <p><b>Email: </b>{user.email} </p>
+                            <p><b>Direccion: </b>{user.address} </p>
+                            <p><b>Celular: </b>{user.cel} </p>
+                        </>
+                    }
+                    {
+                        !user && <p>No se encontraron datos del usuario que estaba buscando</p>
+                    }
+                </div>
+            </body >
         </>
     )
 }

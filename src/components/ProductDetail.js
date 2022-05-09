@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Sidebar from './Sidebar';
 
 function ProductDetail() {
     const { id } = useParams()
@@ -33,21 +34,26 @@ function ProductDetail() {
 
     return (
         <>
-            <h1>Detalle del Producto</h1>
-            {
-                product &&
-                <>
-                    <p><b>Nombre: </b>{product.name} </p>
-                    <p><b>Descripcion: </b>{product.description} </p>
-                    <p><b>Precio: </b>{product.price} </p>
-                    <p><b>Categoria: </b>{product.category.name} </p>
-                    <p><b>Stock: </b>{product.stock} </p>
-                    {<img src={image.url} alt="imagen del producto" />}
-                </>
-            }
-            {
-                !product && <p>No se encontro detalle del producto que estaba buscando</p>
-            }
+            <body>
+                <div className="contenedor">
+                    <Sidebar />
+                    <h1>Detalle del Producto</h1>
+                    {
+                        product &&
+                        <>
+                            <p><b>Nombre: </b>{product.name} </p>
+                            <p><b>Descripcion: </b>{product.description} </p>
+                            <p><b>Precio: </b>{product.price} </p>
+                            <p><b>Categoria: </b>{product.category.name} </p>
+                            <p><b>Stock: </b>{product.stock} </p>
+                            {<img src={image.url} alt="imagen del producto" />}
+                        </>
+                    }
+                    {
+                        !product && <p>No se encontro detalle del producto que estaba buscando</p>
+                    }
+                </div>
+            </body >
         </>
     )
 }
