@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from './Sidebar';
+import "./estilos.css"
 
 
 function Home() {
@@ -42,15 +43,15 @@ function Home() {
                         <section className="seccion-totales">
                             <article className="total-productos">
                                 <h4>PRODUCTOS</h4>
-                                <h4>{countProducts} </h4>
+                                <h3>{countProducts} </h3>
                             </article>
                             <article className="total-usuarios">
                                 <h4>USUARIOS</h4>
-                                <h4>{countUsers} </h4>
+                                <h3>{countUsers} </h3>
                             </article>
                             <article className="total-categorias">
                                 <h4>CATEGORIAS</h4>
-                                <h4>{categories.length} </h4>
+                                <h3>{categories.length} </h3>
                             </article>
 
                             <article className="total-por-categoria">
