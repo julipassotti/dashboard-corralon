@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 
 function UserDetail() {
     const { id } = useParams()
-    const url = `http://localhost:3001/api/users/${id}`
+    const url = `http://localhost:3000/api/users/${id}`
     const [user, setUser] = useState()
     const fetchApi = async () => {
         const response = await fetch(url);
@@ -31,19 +31,33 @@ function UserDetail() {
             <div>
                 <div className="contenedor">
                     <Sidebar />
-                    <h1>Datos del Usuario</h1>
-                    {
-                        user &&
-                        <>
-                            <p><b>Nombre: </b>{user.fullName} </p>
-                            <p><b>Email: </b>{user.email} </p>
-                            <p><b>Direccion: </b>{user.address} </p>
-                            <p><b>Celular: </b>{user.cel} </p>
-                        </>
-                    }
-                    {
-                        !user && <p>No se encontraron datos del usuario que estaba buscando</p>
-                    }
+                    <div className="userDetail">
+                        <h1 className="titleUd">Datos del Usuario</h1>
+                        {
+                            user &&
+                            <>
+                                <div className="usItem1">
+                                    <i class='bx bx-id-card'></i>
+                                    <p className="uD1"><b>Nombre: </b>{user.fullName} </p>
+                                </div>
+                                <div className="usItem2">
+                                    <i class='bx bx-envelope'></i>
+                                    <p className="uD2"><b>Email: </b>{user.email} </p>
+                                </div>
+                                <div className="usItem3">
+                                    <i class='bx bx-home'></i>
+                                    <p className="uD3"><b>Direccion: </b>{user.address} </p>
+                                </div>
+                                <div className="usItem4">
+                                    <i class='bx bxs-phone'></i>
+                                    <p className="uD4"><b>Celular: </b>{user.cel} </p>
+                                </div>
+                            </>
+                        }
+                        {
+                            !user && <p className="uD5">No se encontraron datos del usuario que estaba buscando</p>
+                        }
+                    </div>
                 </div>
             </div >
         </>

@@ -13,7 +13,7 @@ import {
 } from "reactstrap"
 
 function Products() {
-    const url = 'http://localhost:3001/api/products'
+    const url = 'http://localhost:3000/api/products'
     const [allProducts, setAllProducts] = useState([])
     const fetchApi = async () => {
         const response = await fetch(url);

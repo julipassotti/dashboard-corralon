@@ -4,13 +4,13 @@ import Sidebar from './Sidebar';
 
 function ProductDetail() {
     const { id } = useParams()
-    const url = `http://localhost:3001/api/products/${id}`
+    const url = `http://localhost:3000/api/products/${id}`
     const [product, setProduct] = useState()
     const [image, setImage] = useState()
     const fetchApi = async () => {
         const response = await fetch(url);
         const responseJson = await response.json()
-        const responseImg = await fetch(`http://localhost:3001${responseJson.data.imgUrl}`)
+        const responseImg = await fetch(`http://localhost:3000${responseJson.data.imgUrl}`)
         setProduct(responseJson.data)
         setImage(responseImg)
     }

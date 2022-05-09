@@ -4,7 +4,7 @@ import "./estilos.css"
 
 
 function Home() {
-    const urlProducts = 'http://localhost:3001/api/products'
+    const urlProducts = 'http://localhost:3000/api/products'
     const [countProducts, setCountProducts] = useState(0)
     const [categories, setCategories] = useState([])
     const [lastProduct, setLastProduct] = useState([])
@@ -16,7 +16,7 @@ function Home() {
         setLastProduct(responseJson.products.pop())
     }
 
-    const urlUsers = 'http://localhost:3001/api/users'
+    const urlUsers = 'http://localhost:3000/api/users'
     const [countUsers, setCountUsers] = useState(0)
     const [lastUser, setLastUser] = useState([])
     const fetchApiUsers = async () => {

@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import { Table } from "reactstrap"
 
 function Users() {
-    const url = 'http://localhost:3001/api/users'
+    const url = 'http://localhost:3000/api/users'
     const [allUsers, setAllUsers] = useState([])
     const fetchApi = async () => {
         const response = await fetch(url);

@@ -252,3 +252,31 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
+
+/* Estilos para UserDetail */
+.userDetail {
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleUd {
+    height: 70px;
+    color: var(--azul);
+    text-decoration: underline;
+}
+
+.uD1, .uD2, .uD3, .uD4, .uD5 {
+    height: 30px;
+    color: var(--gris)
+}
+
+.usItem1, .usItem2, .usItem3, .usItem4 {
+    display: flex;
+}
+
+.bx-id-card, .bx-envelope, .bx-home, .bxs-phone {
+    font-size: 22px;
+    color: var(--azul);
+    padding: 0 10px;
+}
