@@ -4,15 +4,6 @@ import Sidebar from "./Sidebar";
 import { Table } from "reactstrap";
 
 function Users() {
-<<<<<<< HEAD
-    const url = 'http://localhost:3000/api/users'
-    const [allUsers, setAllUsers] = useState([])
-    const fetchApi = async () => {
-        const response = await fetch(url);
-        const responseJson = await response.json()
-        setAllUsers(responseJson.users)
-    }
-=======
   const url = "http://localhost:3001/api/users";
   const [allUsers, setAllUsers] = useState([]);
   const fetchApi = async () => {
@@ -20,7 +11,6 @@ function Users() {
     const responseJson = await response.json();
     setAllUsers(responseJson.users);
   };
->>>>>>> 00dd450b2b2aa4449817291de934308563804635
 
   useEffect(() => {
     console.log("Se monto el componente");
