@@ -247,10 +247,20 @@ a {
 }
 
 .productContent {
+    
     width: 100%;
     height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-content:center;
+}
+
+.productContent img{
+
+    object-fit: cover;
+   width: 150px;
+   height: 200px;
 }
 
 /* Estilos para UserDetail */
@@ -351,4 +361,12 @@ a {
     grid-row: 3 / 8;
     justify-self: end;
     align-self: center
+}
+
+div .card {
+    margin: 10.5px;
+    text-align: center;
+    align-items: center;
+    width: 200px;
+    height: 400px
 }
