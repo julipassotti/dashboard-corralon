@@ -5,10 +5,13 @@ function ProductDetail() {
     const {id} = useParams()
     const url = `http://localhost:3000/api/products/${id}`
     const [product, setProduct] = useState()
+    const [image, setImage] = useState()
     const fetchApi = async () => {
       const response = await fetch(url);
       const responseJson = await response.json()
+      const responseImg = await fetch(`http://localhost:3000${responseJson.data.imgUrl}`)
       setProduct(responseJson.data)
+      setImage(responseImg)
     }
 
     useEffect( () => {
@@ -18,6 +21,9 @@ function ProductDetail() {
     )
     console.log(product)
     console.log(setProduct)
+    console.log(image)
+    console.log(setImage)
+    
     
     // useEffect( () => {
     //     console.log("Se actualizo el componente")
@@ -36,7 +42,7 @@ function ProductDetail() {
                         <p><b>Precio: </b>{product.price} </p>
                         <p><b>Categoria: </b>{product.category.name} </p>
                         <p><b>Stock: </b>{product.stock} </p>
-                        {<img src={product.imgUrl} alt="imagen del producto"/>}
+                        {<img src={image.url} alt="imagen del producto"/>}
                     </>
             }
             {
