@@ -37,21 +37,23 @@ function ProductDetail() {
             <div>
                 <div className="contenedor">
                     <Sidebar />
-                    <h1>Detalle del Producto</h1>
-                    {
-                        product &&
-                        <>
-                            <p><b>Nombre: </b>{product.name} </p>
-                            <p><b>Descripcion: </b>{product.description} </p>
-                            <p><b>Precio: </b>{product.price} </p>
-                            <p><b>Categoria: </b>{product.category.name} </p>
-                            <p><b>Stock: </b>{product.stock} </p>
-                            {<img src={image.url} alt="imagen del producto" />}
-                        </>
-                    }
-                    {
-                        !product && <p>No se encontro detalle del producto que estaba buscando</p>
-                    }
+                    <div className="productDetail">
+                        <h1 className="titlePd">Detalle del Producto</h1>
+                        {
+                            product &&
+                            <>
+                                <p className="pD1"><b>Nombre: </b>{product.name} </p>
+                                <p className="pD2"><b>Descripcion: </b>{product.description} </p>
+                                <p className="pD3"><b>Precio: </b>{product.price} </p>
+                                <p className="pD4"><b>Categoria: </b>{product.category.name} </p>
+                                <p className="pD5"><b>Stock: </b>{product.stock} </p>
+                                {<img className="pD6" src={image.url} alt="imagen del producto" />}
+                            </>
+                        }
+                        {
+                            !product && <p>No se encontro detalle del producto que estaba buscando</p>
+                        }
+                    </div>
                 </div>
             </div >
         </>
