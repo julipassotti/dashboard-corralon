@@ -5,19 +5,16 @@ import Sidebar from './Sidebar';
 function Products() {
     const url = 'http://localhost:3001/api/products'
     const [allProducts, setAllProducts] = useState([])
-    const [countProducts, setCountProducts] = useState(0)
     const fetchApi = async () => {
         const response = await fetch(url);
         const responseJson = await response.json()
         setAllProducts(responseJson.products)
-        setCountProducts(responseJson.products.length)
     }
 
     useEffect(() => {
-        console.log("Se monto el componente")
         fetchApi();
     }, []
-    )
+    );
 
     console.log(allProducts)
     console.log(setAllProducts)
@@ -30,7 +27,7 @@ function Products() {
 
     return (
         <>
-            <body>
+            <div>
                 <div className="contenedor">
                     <Sidebar />
                     <h2>Productos</h2>
@@ -52,7 +49,7 @@ function Products() {
                         }
                     </ul>
                 </div>
-            </body >
+            </div >
         </>
     )
 }

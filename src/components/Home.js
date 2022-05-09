@@ -35,7 +35,7 @@ function Home() {
 
     return (
         <>
-            <body>
+            <div>
                 <div className="contenedor">
                     <Sidebar />
                     <div className="analiticContent">
@@ -84,7 +84,7 @@ function Home() {
                         </section>
                     </div>
                 </div>
-            </body >
+            </div >
         </>
     )
 }

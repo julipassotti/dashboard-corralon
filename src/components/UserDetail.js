@@ -15,8 +15,8 @@ function UserDetail() {
     useEffect(() => {
         console.log("Se monto el componente")
         fetchApi();
-    },
-    )
+    }, []
+    );
     console.log(user)
     console.log(setUser)
 
@@ -28,7 +28,7 @@ function UserDetail() {
 
     return (
         <>
-            <body>
+            <div>
                 <div className="contenedor">
                     <Sidebar />
                     <h1>Datos del Usuario</h1>
@@ -45,7 +45,7 @@ function UserDetail() {
                         !user && <p>No se encontraron datos del usuario que estaba buscando</p>
                     }
                 </div>
-            </body >
+            </div >
         </>
     )
 }

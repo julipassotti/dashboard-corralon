@@ -12,10 +12,10 @@ function Sidebar() {
 
   return (
     <>
-      <head>
+      <div>
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet' />
-      </head>
-      <body>
+      </div>
+      <div>
         <div className="contenedor">
           <div className="menu-dashboard">
             {/* TOP MENU */}
@@ -25,29 +25,29 @@ function Sidebar() {
                 <span>Corralon Sanchez</span>
               </div>
               <div className="toggle">
-                <i class='bx bx-menu' onClick={afterClick}></i>
+                <i className='bx bx-menu' onClick={afterClick}></i>
               </div>
             </div>
             {/* INPUT SEARCH */}
             <div className="input-search">
-              <i class='bx bx-search'  ></i>
+              <i className='bx bx-search'  ></i>
               <input type="text" className="input" placeholder='Buscar'></input>
             </div>
             {/* MENU */}
             <div className="menu">
-              <NavLink to="/" activeClassName="active">
+              <NavLink to="/" >
                 <div className="enlace" onClick={afterClick}>
                   <i className="bx bx-line-chart" ></i>
                   <span>Analiticas</span>
                 </div>
               </NavLink>
-              <NavLink to="/users" activeClassName="active">
+              <NavLink to="/users" >
                 <div className="enlace" onClick={afterClick}>
                   <i className="bx bx-user" ></i>
                   <span>Usuarios</span>
                 </div>
               </NavLink>
-              <NavLink to="/products" activeClassName="active">
+              <NavLink to="/products" >
                 <div className="enlace" onClick={afterClick}>
                   <i className="bx bx-package" ></i>
                   <span>Productos</span>
@@ -57,7 +57,7 @@ function Sidebar() {
           </div>
         </div>
 
-      </body>
+      </div>
     </>
   )
 }

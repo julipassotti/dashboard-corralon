@@ -21,7 +21,7 @@ function Users() {
     console.log(setAllUsers)
     return (
         <>
-            <body>
+            <div>
                 <div className="contenedor">
                     <Sidebar />
                     <div className="contUsers">
@@ -46,7 +46,7 @@ function Users() {
                         </ul>
                     </div>
                 </div>
-            </body>
+            </div>
         </>
     )
 }

@@ -18,8 +18,8 @@ function ProductDetail() {
     useEffect(() => {
         console.log("Se monto el componente")
         fetchApi();
-    },
-    )
+    }, []
+    );
     console.log(product)
     console.log(setProduct)
     console.log(image)
@@ -34,7 +34,7 @@ function ProductDetail() {
 
     return (
         <>
-            <body>
+            <div>
                 <div className="contenedor">
                     <Sidebar />
                     <h1>Detalle del Producto</h1>
@@ -53,7 +53,7 @@ function ProductDetail() {
                         !product && <p>No se encontro detalle del producto que estaba buscando</p>
                     }
                 </div>
-            </body >
+            </div >
         </>
     )
 }
